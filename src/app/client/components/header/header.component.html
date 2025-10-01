@@ -1,0 +1,50 @@
+<header [class.container]="!isAtTop" [class.container-nav]="showNav">
+  <div class="content-container">
+    <a routerLink="/" class="web-title">Pastriesland</a>
+
+    <button type="button" class="nav-btn" [class.show-nav]="showNav" (click)="toggleShowNav()">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav [class]="showNav ? 'show-nav' : ''">
+      <a routerLink="/sobre-nosotros">Sobre nosotros</a>
+      <a href="/productos">Nuestros productos</a>
+
+      <a class="pink-btn">
+        {{ isLoggedIn ? 'Mi cuenta' : 'Iniciar sesión' }}
+      </a>
+
+      <a class="carrito-btn">
+        <img src="assets/icons/canasta.svg" alt="Canasta" />
+
+        <span>Ver mi Carrito</span>
+
+        <i *ngIf="productsCount">{{productsCount}}</i>
+      </a>
+
+      <section class="links">
+        <a href="" rel="nofollow" target="_blank">
+          <img src="assets/icons/instagram.svg" alt="Instagram" />
+        </a>
+
+        <a href="" rel="nofollow" target="_blank">
+          <img src="assets/icons/facebook.svg" alt="Facebook" />
+        </a>
+
+        <a href="" rel="nofollow" target="_blank">
+          <img src="assets/icons/tiktok.svg" alt="TikTok" />
+        </a>
+
+        <a href="" rel="nofollow" target="_blank">
+          <img src="assets/icons/whatsapp.svg" alt="WhatsApp" />
+        </a>
+
+        <a href="" rel="nofollow" target="_blank">
+          <img src="assets/icons/pedidosya.svg" alt="" />
+        </a>
+      </section>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper" [class.show-wrapper]="showNav"></div>

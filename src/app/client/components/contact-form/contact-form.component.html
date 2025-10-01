@@ -1,0 +1,63 @@
+<section id="contactanos">
+  <div class="img-container">
+    <img src="assets/img/cake-contacts.jpg" alt="Cake image">
+  </div>
+  <form class="content-container" [formGroup]="contactForm" (ngSubmit)="submit()">
+    <h2>¿Necesitas <strong>Ayuda?</strong></h2>
+    <p><strong>Contáctanos</strong> y te ayudamos a crear el <span>Dulce Perfecto</span></p>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Tu nombre</mat-label>
+      <input
+        matInput
+        placeholder="Compartenos tu nombre"
+        type="text"
+        required
+        formControlName="name"
+      />
+
+      <mat-error *ngIf="nameErrors">{{nameErrors}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Correo electrónico</mat-label>
+      <input
+        matInput
+        placeholder="ej: amigo@email.com"
+        type="text"
+        required
+        formControlName="email"
+      />
+
+      <mat-error *ngIf="emailErrors">{{emailErrors}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Tu WhatsApp</mat-label>
+      <input
+        matInput
+        placeholder="Ej: 1234-5678"
+        type="text"
+        mask="0000-0000"
+        required
+        formControlName="whatsapp"
+      />
+
+      <mat-error *ngIf="whatsappErrors">{{whatsappErrors}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Tu Mensaje</mat-label>
+      <textarea
+        matInput
+        formControlName="message"
+      ></textarea>
+    </mat-form-field>
+
+
+    <button class="pink-btn" type="submit">Enviar mensaje</button>
+
+    <p>Contactanos por <i>WhatsApp</i></p>
+    <a rel="nofollow" class="pink-btn whatsapp-btn" target="_blank">Abrir WhatsApp</a>
+  </form>
+</section>
