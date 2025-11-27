@@ -1,0 +1,115 @@
+<section class="content-container" id="checkout">
+  <h1>
+    Completar <strong>Compra</strong>
+  </h1>
+
+  <section class="checkout-container">
+    <section class="info">
+      <div class="selector-container">
+        <div>
+          <h4>¿Cómo deseas recibir tus productos?</h4>
+          <p>Podemos enviar tus órdenes hasta la puerta de tu casa o puedes recogerlas en bodega. Tú escoges.</p>
+        </div>
+        <mat-slide-toggle [checked]="pickUp" (toggleChange)="togglePickUp()"><strong>Pickup</strong></mat-slide-toggle>
+      </div>
+
+      <section *ngIf="!pickUp" class="addresses">
+        <div class="flex">
+          <h4>
+            <mat-icon>home</mat-icon>
+            Dirección de envío
+          </h4>
+          <button class="add-address-btn" (click)="createAddress()">
+            <mat-icon>add_circle</mat-icon>
+            Agregar dirección
+          </button>
+        </div>
+        <div class="addresses-grid">
+
+          <!-- ADDRESS ITEM -->
+        </div>
+      </section>
+
+      <section class="payments">
+        <h4>
+          <mat-icon>wallet</mat-icon>
+          Metodos de pago
+        </h4>
+        <div class="buttons">
+          <button [class.selected]="isPaymentCard" (click)="setPaymentMethod('card')">
+            <mat-icon>credit_card</mat-icon>
+            <span>Tarjetas de crédito</span>
+          </button>
+          <button [class.selected]="isPaymentCash" (click)="setPaymentMethod('cash')">
+            <mat-icon>payments</mat-icon>
+            <span>Pago en efectivo</span>
+          </button>
+        </div>
+
+        <section *ngIf="isPaymentCard">
+          <form>
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Nombre del titular</mat-label>
+              <input
+                matInput
+                required
+              />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-full">
+              <mat-label>Número de tarjeta</mat-label>
+              <input
+                matInput
+                required
+              />
+            </mat-form-field>
+
+            <div class="flex">
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Fecha de vencimiento</mat-label>
+                <input
+                  matInput
+                  placeholder="MM/YYYY"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-label>CVV</mat-label>
+                <input
+                  matInput
+                  mask="000"
+                  required
+                  type="number"
+                />
+              </mat-form-field>
+            </div>
+            <span>* Ninguno de estos datos sera guardado.</span>
+          </form>
+        </section>
+      </section>
+    </section>
+
+
+    <section class="resumen">
+      <h4>Resumen de la orden:</h4>
+
+      <p>Items ({{countProducts}}): {{ totalPrice | currency }}</p>
+
+      <p>Precio de entrega: {{deliveryPrice | currency}}</p>
+
+      <hr>
+
+      <p>Total de la orden</p>
+      <p class="total">{{totalOrderPrice|currency}}</p>
+
+      <button class="pink-btn">Confirmar compra</button>
+    </section>
+  </section>
+</section>
+
+<section class="content-container">
+  <h3>Estos son los productos que haz agregado a tu carrito de compra.</h3>
+
+  <section class="carrito-grid no-max-height">
+    <app-cart-item *ngFor="let product of currentCart" [product]="product" (productRemoved)="removeProduct($event)" />
+  </section>
+</section>

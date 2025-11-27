@@ -1,0 +1,104 @@
+<section id="banner">
+  <div class="content-container">
+    <h2>
+      Nuestros
+      <span>Productos</span>
+    </h2>
+    <p>Pasteles y postres personalizados para toda ocasión.</p>
+    <img src="assets/img/cake2.jpg" alt="Cake">
+  </div>
+</section>
+
+<section class="content-container" id="nuestros-productos">
+  <h1>Nuestro <strong>Catálogo</strong></h1>
+  <p>Sabores que enamoran, diseños que sorprenden</p>
+
+  <button class="filter-btn pink-btn" (click)="toggleSeeFilters()">
+    <mat-icon>filter_alt</mat-icon>
+    {{!seeFilters ? 'Mostrar' : 'Ocultar'}} Filtros
+  </button>
+
+  <section class="products-container">
+    <aside [class.show-aside]="seeFilters">
+      <h2>Nuestros <span>Productos</span></h2>
+
+      <ul class="categories-grid">
+        <li *ngFor="let category of categories">
+          <mat-checkbox
+            class="pink-checkbox"
+            (click)="toggleCategories(category.id)"
+            [checked]="selectedCategories.includes(category.id)"
+          >
+            {{ category.name }}
+          </mat-checkbox>
+        </li>
+      </ul>
+
+      <!--<h3>Filtrar <span>por</span></h3>
+      <div class="flex-container">
+        <p>Porciones</p>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="0"
+            type="number"
+            required
+            min="0"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <input
+            matInput
+            placeholder="20"
+            type="number"
+            required
+            min="0"
+          />
+        </mat-form-field>
+      </div>
+      <div class="flex-container">
+        <p>Precio ($)</p>
+
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            placeholder="0.00"
+            type="number"
+            required
+            min="0"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <input
+            matInput
+            placeholder="20.00"
+            type="number"
+            required
+            min="0"
+          />
+        </mat-form-field>
+      </div>-->
+
+      <button class="pink-btn" (click)="applyFilters()">Filtrar</button>
+      <button class="purple-btn" (click)="clearFilters()">Limpiar filtros</button>
+    </aside>
+
+    <section class="product-list">
+      <section class="product-grid">
+        <app-product-card
+          *ngFor="let product of products"
+          [product]="product"
+        />
+      </section>
+
+      <app-pagination [paginationMeta]="paginationMeta" (pageChange)="changePage($event)" />
+    </section>
+
+  </section>
+  <span>* El precio puede variar en función del sabor o el diseño seleccionado</span>
+</section>
+
+<app-contact-form />

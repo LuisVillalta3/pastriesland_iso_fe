@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Nombre de la dirección</mat-label>
+    <input
+      matInput
+      formControlName="addressName"
+      type="text"
+      required
+    />
+
+    <mat-error *ngIf="addressNameErrors">
+      {{addressNameErrors}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Dirección</mat-label>
+    <input
+      matInput
+      formControlName="address"
+      type="text"
+      required
+    />
+
+    <mat-error *ngIf="addressErrors">
+      {{addressErrors}}
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" class="pink-btn">Crear dirección</button>
+</form>

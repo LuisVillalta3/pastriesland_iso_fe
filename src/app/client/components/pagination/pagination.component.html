@@ -1,0 +1,11 @@
+<ul>
+  <li class="prev-page" [class.disabled]="!paginationMeta.hasPrevPage" (click)="changeToPrevPage()">
+    <mat-icon>chevron_left</mat-icon>
+  </li>
+  <li *ngFor="let _ of pages; let i = index" [class.current-page]="isCurrentPage(i+1)" (click)="changePage(i+1)">
+    {{ i + 1 }}
+  </li>
+  <li class="next-page" [class.disabled]="!paginationMeta.hasNextPage" (click)="changeToNextPage()">
+    <mat-icon>chevron_right</mat-icon>
+  </li>
+</ul>
