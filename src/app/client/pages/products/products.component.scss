@@ -1,0 +1,137 @@
+#nuestros-productos {
+  position: relative;
+  padding: 2rem 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+
+  strong {
+    color: #F75590;
+  }
+}
+
+p {
+  margin: 0;
+  text-align: center;
+}
+
+button {
+  padding: 5px 1.2rem 5px .4rem;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+h2,
+h3{
+  font-family: "Playfair Display", serif;
+  margin: 0;
+
+  span {
+    color: #F75590;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}
+
+h3 {
+  color: #F75590;
+  font-size: 1.4rem;
+
+  span {
+    color: #0D1821;
+    font-size: 1em;
+    display: inline-block;
+  }
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: .5s all ease;
+  transform-origin: top;
+  background: white;
+  transform: scaleY(0);
+  height: 0;
+
+  &.show-aside {
+    transform: scaleY(1);
+    height: auto;
+  }
+
+  @media screen and (min-width: 1024px) {
+    transform: scaleY(1);
+    height: auto;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+
+  .mat-internal-form-field>label {
+    font-size: 1.1rem;
+  }
+}
+
+.flex-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  p {
+    padding-bottom: 20px;
+  }
+
+  * {
+    flex: 1;
+  }
+}
+
+.products-container {
+  position: relative;
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: minmax(300px, 30%) 1fr 1fr;
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: minmax(275px, 24%) 1fr 1fr;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  .filter-btn {
+    display: none;
+  }
+
+  .product-list {
+    grid-column: 2 / 4;
+  }
+
+  aside {
+    grid-column: 1;
+  }
+}
