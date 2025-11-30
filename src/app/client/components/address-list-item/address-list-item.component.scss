@@ -1,0 +1,42 @@
+article {
+  padding: 1rem;
+  display: flex;
+  gap: 10px;
+  border: #f75590 4px solid;
+  border-radius: 12px;
+
+  h4,
+  p {
+    margin: 0;
+  }
+
+  h4 {
+    color: #f75590;
+    font-size: 22px;
+  }
+
+  p {
+    font-weight: 500;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .mat-icon {
+    fill: #f75590 !important;
+    color: #f75590;
+  }
+
+  &.selected {
+    border-color: #9747ff;
+    background: rgb(233, 233, 233);
+
+    h4 {
+      color: #9747ff;
+    }
+
+    .mat-icon {
+      fill: #9747ff !important;
+      color: #9747ff;
+    }
+  }
+}

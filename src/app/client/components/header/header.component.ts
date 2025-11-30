@@ -81,7 +81,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       return
     }
 
-    //this.cookieService.deleteToken('client')
+    this.cookieService.deleteToken('client')
   }
 
   get productsCount() {

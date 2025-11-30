@@ -39,6 +39,20 @@ export class CookiesService {
     this.clientTokenSubject.next(token)
   }
 
+  saveUserID(userID: string, duration: number = 60) {
+    const date = new Date();
+    date.setMinutes(date.getMinutes() + duration)
+    this.cookieService.set(
+      'CLIENT_USER_ID',
+      userID,
+      date,
+    )
+  }
+
+  getUserID() {
+    return this.cookieService.get('CLIENT_USER_ID')
+  }
+
   deleteToken(key: KeyType) {
     this.cookieService.delete(this.getTokenKey(key))
     this.clientTokenSubject.next(null)

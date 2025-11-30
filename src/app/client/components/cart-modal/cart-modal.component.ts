@@ -49,10 +49,7 @@ export class CartModalComponent implements OnInit, OnDestroy {
   }
 
   get totalPrice() {
-    return this.currentCart.reduce((total, product) => {
-      const price = parseFloat(product.basePrice);
-      return total + (price * (product.units || 1));
-    }, 0);
+    return this.cartService.getCartPrice();
   }
 
   get countProducts() {

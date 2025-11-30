@@ -28,7 +28,9 @@
           </button>
         </div>
         <div class="addresses-grid">
-          <!-- ADDRESS ITEM -->
+          <div *ngFor="let address of addresses">
+            <app-address-list-item [address]="address" />
+          </div>
         </div>
       </section>
 
@@ -77,6 +79,17 @@
             </div>
             <span>* Ninguno de estos datos sera guardado.</span>
           </form>
+        </section>
+
+        <section *ngIf="!isPaymentCard">
+          <p>
+            Paga en efectivo al momento de la entrega. Un repartidor te
+            contactará para coordinar la entrega.
+          </p>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Cambio para</mat-label>
+            <input matInput type="number" prefix="$ " min="1" />
+          </mat-form-field>
         </section>
       </section>
     </section>

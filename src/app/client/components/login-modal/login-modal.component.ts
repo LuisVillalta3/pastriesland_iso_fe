@@ -50,6 +50,7 @@ export class LoginModalComponent {
     this.authService.login(email, password).subscribe({
       next: (res) => {
         this.cookieService.saveToken(res.accessToken, 'client')
+        this.cookieService.saveUserID(res.user.id)
         this.notification.show('Usuario loggeado correctamente')
         this.close()
       }

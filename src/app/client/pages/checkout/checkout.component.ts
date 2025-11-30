@@ -15,11 +15,14 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {CartModalComponent} from '@client/components/cart-modal/cart-modal.component';
 import {AddressFormModalComponent} from '@client/components/address-form-modal/address-form-modal.component';
+import { AddrressService } from '../../services/addrress.service';
+import { AddressEntity } from '@/app/entities/address.entity';
+import { AddressListItemComponent } from '../../components/address-list-item/address-list-item.component';
 
 @Component({
   selector: 'app-checkout',
   imports: [MatSlideToggleModule, MatIconModule, ReactiveFormsModule,
-    MatFormFieldModule, MatInput, NgIf, NgxMaskDirective, CartItemComponent, NgForOf, CurrencyPipe],
+    MatFormFieldModule, MatInput, NgIf, NgxMaskDirective, CartItemComponent, NgForOf, CurrencyPipe, AddressListItemComponent],
   templateUrl: './checkout.component.html',
   providers: [provideNgxMask()],
   styleUrl: './checkout.component.scss'
@@ -28,12 +31,15 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   pickUp = false;
   paymentMethod: 'card' | 'cash' = 'card';
 
+  addresses: AddressEntity[] = [];
+
   currentCart: ProductEntity[] = [];
 
   sub!: Subscription
 
   constructor(
     private cartService: CartService,
+    private addressService: AddrressService,
     private notification: NotificationService,
     private router: Router,
     private dialog: MatDialog,
@@ -67,6 +73,13 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         }
       }
     )
+
+    this.addressService.getAddresses().subscribe({
+      next: (res) => {
+        if (!res?.data) return;
+        this.addresses = [...res.data];
+      }
+    })
   }
 
   ngOnDestroy(): void {
@@ -78,10 +91,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   get totalPrice() {
-    return this.currentCart.reduce((total, product) => {
-      const price = parseFloat(product.basePrice);
-      return total + (price * (product.units || 1));
-    }, 0);
+    return this.cartService.getCartPrice();
   }
 
   get countProducts() {
