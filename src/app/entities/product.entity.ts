@@ -5,6 +5,7 @@ import {assetImageUrl} from '@app/utils/asset-image-url.util';
 
 export class ProductEntity extends BaseEntity {
   name!: string;
+  productId?: string;
   basePrice!: string;
   active!: boolean;
   isComplement: boolean = false;
@@ -24,4 +25,4 @@ export class ProductEntity extends BaseEntity {
   design: string = '';
 }
 
-export type ProductCartItem = ProductEntity & { quantity: number }
+export type ProductCartItem = ProductEntity & { quantity: number, productPrice?: string }

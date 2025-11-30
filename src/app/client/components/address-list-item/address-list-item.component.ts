@@ -10,4 +10,5 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AddressListItemComponent {
   @Input() address!: AddressEntity
+  @Input() selected: boolean = false
 }

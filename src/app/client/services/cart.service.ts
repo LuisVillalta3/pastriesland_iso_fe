@@ -43,6 +43,19 @@ export class CartService {
     )
   }
 
+  generateOrderItems(products: ProductEntity[]): ProductCartItem[] {
+    return Object.values(
+      products.reduce((acc, prod) => {
+        if (!prod.productId) return acc;
+        if (!acc[prod.productId]) {
+          acc[prod.productId] = { ...prod, quantity: 0 };
+        }
+        acc[prod.productId].quantity! += 1;
+        return acc;
+      }, {} as { [key: string]: ProductCartItem })
+    )
+  }
+
   removeProductFromCart(productId: string) {
     const currentCart = this.cartProducts.getValue();
     const updatedCart = currentCart.filter(product => product.id !== productId);
@@ -52,6 +65,7 @@ export class CartService {
 
   clearCart() {
     this.cartProducts.next([]);
+    this.saveCartToCookies();
   }
 
   getCartProducts(): ProductEntity[] {

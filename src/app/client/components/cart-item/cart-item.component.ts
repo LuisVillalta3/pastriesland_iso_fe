@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ProductCartItem, ProductEntity} from '@entities/product.entity';
 import {assetImageUrl} from '@app/utils/asset-image-url.util';
-import {CurrencyPipe} from '@angular/common';
+import {CurrencyPipe, NgIf} from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
@@ -9,12 +9,14 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     CurrencyPipe,
     MatIconModule,
+    NgIf,
   ],
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.scss'
 })
 export class CartItemComponent {
   @Input({ required: true }) product!: ProductCartItem;
+  @Input() hideActions: boolean = false;
 
   @Output() productRemoved = new EventEmitter<string>();
   @Output() addOneMoreProduct = new EventEmitter<ProductEntity>();
@@ -25,7 +27,10 @@ export class CartItemComponent {
   }
 
   get totalPrice() {
-    return +this.product.basePrice * (this.product.quantity || 1);
+    let price = this.product.basePrice;
+    console.log(price)
+    if (price === undefined) price = this.product.productPrice || '0';
+    return +price * (this.product.quantity || 1);
   }
 
   removeProduct() {

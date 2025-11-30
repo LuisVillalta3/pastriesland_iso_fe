@@ -1,0 +1,22 @@
+<section *ngIf="order">
+  <h1>Mi orden</h1>
+
+  <p>Aquí encontras información sobre tu pedido</p>
+
+  <div class="grid-data">
+    <p class="id">Orden ID: {{ order.id }}</p>
+    <p class="date">Fecha de la orden: {{ order.createdAt | date }}</p>
+    <p class="price">Total: {{ order.total | currency }}</p>
+    <p class="address">Dirección de envió: {{ order.address }}</p>
+    <p class="payment-method">Método de pago: {{ paymentMethodText }}</p>
+  </div>
+</section>
+
+<section>
+  <h2>Productos ordenados</h2>
+  <p>Estos son los postres que pediste en tu orden</p>
+
+  <section class="grid">
+    <app-cart-item *ngFor="let product of productItems" [product]="product" />
+  </section>
+</section>

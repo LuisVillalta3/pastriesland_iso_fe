@@ -56,8 +56,7 @@ export class AddressFormModalComponent {
   submit() {
     if (this.form.invalid) return
 
-    console.log("SE CREA LA DIRECCIÓN", this.form.value);
-    const {addressName, address } = this.form.value;
+    const { addressName, address } = this.form.value;
 
     this.addressService.createAddress(addressName, address).subscribe({
       next: (res) => {

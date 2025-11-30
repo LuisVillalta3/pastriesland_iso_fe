@@ -29,7 +29,11 @@
         </div>
         <div class="addresses-grid">
           <div *ngFor="let address of addresses">
-            <app-address-list-item [address]="address" />
+            <app-address-list-item
+              [address]="address"
+              [selected]="selectedAddressId == address.id"
+              (click)="selectAddress(address.id)"
+            />
           </div>
         </div>
       </section>
@@ -106,7 +110,9 @@
       <p>Total de la orden</p>
       <p class="total">{{ totalOrderPrice | currency }}</p>
 
-      <button class="pink-btn">Confirmar compra</button>
+      <button (click)="confirmOrder()" class="pink-btn">
+        Confirmar compra
+      </button>
     </section>
   </section>
 </section>

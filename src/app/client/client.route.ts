@@ -5,6 +5,7 @@ import {SobreNosotrosComponent} from '@client/pages/sobre-nosotros/sobre-nosotro
 import {ProductsComponent} from '@client/pages/products/products.component';
 import {CheckoutComponent} from '@client/pages/checkout/checkout.component';
 import {clientGuard} from '@guards/client.guard';
+import { OrderDetailsComponent } from './pages/order-details/order-details.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,7 @@ export const routes: Routes = [
         component: CheckoutComponent,
       },
       { path: 'inicio', redirectTo: '', pathMatch: 'full' },
+      { path: 'orders/:id', component: OrderDetailsComponent },
       { path: '', component: HomeComponent },
     ],
   }

@@ -1,0 +1,45 @@
+article {
+  cursor: pointer;
+  padding: 1rem;
+  border: 4px solid #f75590;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #9747ff;
+    background: transparentize(#9747ff, 0.9);
+    transform: scale(1.02);
+  }
+
+  * {
+    margin: 0;
+    text-align: center;
+  }
+
+  .mat-icon {
+    text-align: center;
+    display: block;
+    color: #f75590;
+    font-size: 48px;
+    height: 52px;
+    width: 52px;
+  }
+
+  .date,
+  .id {
+    color: #5e5e5e;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .total {
+    font-size: 20px;
+    font-weight: bold;
+    color: #9747ff;
+  }
+}

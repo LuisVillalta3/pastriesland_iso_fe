@@ -1,0 +1,8 @@
+<article (click)="viewOrder()">
+  <p class="date">Fecha: {{ order.createdAt | date : "medium" }}</p>
+  <mat-icon>cake</mat-icon>
+  <p class="total">
+    Total: <b>{{ order.total | currency }}</b>
+  </p>
+  <p class="id">ID: {{ order.id }}</p>
+</article>

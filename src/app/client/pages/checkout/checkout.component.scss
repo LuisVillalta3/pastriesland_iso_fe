@@ -119,29 +119,6 @@ h4 {
   justify-content: space-between;
 }
 
-.add-address-btn {
-  background: transparent;
-  color: #565656;
-  font-weight: bold;
-  border-radius: 10px;
-  border: 2px solid #565656;
-  padding: 4px 5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: fit-content;
-  cursor: pointer;
-
-  &:hover {
-    background: #f75590;
-    color: white;
-    border-color: #f75590;
-  }
-}
-
-.addresses-grid {
-  padding: 1rem 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+.addresses article {
+  cursor: pointer !important;
 }

@@ -1,0 +1,37 @@
+<section class="container">
+  <button class="close-btn" (click)="close()">X</button>
+  <h1>Mi <strong>Perfil</strong></h1>
+  <p>Gestiona la información de tu cuenta.</p>
+
+  <section class="addresses">
+    <div class="flex">
+      <h4>
+        <mat-icon>home</mat-icon>
+        Dirección de envío
+      </h4>
+      <button class="add-address-btn" (click)="createAddress()">
+        <mat-icon>add_circle</mat-icon>
+        Agregar dirección
+      </button>
+    </div>
+    <div class="addresses-grid">
+      <div *ngFor="let address of addresses">
+        <app-address-list-item [address]="address" />
+      </div>
+    </div>
+  </section>
+
+  <section class="my-orders">
+    <h2>Mis <span>Ordenes</span></h2>
+    <div class="orders-grid">
+      <div *ngFor="let order of orders">
+        <app-order-list-item
+          [order]="order"
+          (viewedOrder)="viewOrder($event)"
+        />
+      </div>
+    </div>
+  </section>
+
+  <button (click)="logout()" class="pink-btn">Cerrar sesión</button>
+</section>

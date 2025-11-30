@@ -9,6 +9,7 @@ import {ProductEntity} from '@entities/product.entity';
 import {NgIf} from '@angular/common';
 import {NotificationService} from '@services/notification.service';
 import {CartModalComponent} from '@client/components/cart-modal/cart-modal.component';
+import { MyAccountModalComponent } from '../my-account-modal/my-account-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -81,7 +82,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
       return
     }
 
-    this.cookieService.deleteToken('client')
+    //this.cookieService.deleteToken('client')
+
+    const dialogRef = this.dialog.open(MyAccountModalComponent, {
+      minWidth: '250px',
+      maxWidth: '1200px',
+      width: 'calc(100% - 2rem)',
+    })
+
+    dialogRef.afterClosed().subscribe()
   }
 
   get productsCount() {

@@ -1,0 +1,29 @@
+section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  margin: 4rem 0 1rem 0;
+  color: #f75590;
+}
+
+.grid-data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // 2 colums;
+  gap: 1rem;
+
+  p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #565656;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // 5 colums;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
