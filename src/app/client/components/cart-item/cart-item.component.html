@@ -5,6 +5,14 @@
   <section>
     <h4>{{ product.name }}</h4>
     <p class="price">{{ product.basePrice | currency }}</p>
+    <p class="price-total"><b>Total:</b> {{ totalPrice | currency }}</p>
+    <div class="button-actions">
+      <button (click)="removeOne()">-</button>
+      <span
+        >Cantidad: <b>{{ product.quantity }}</b></span
+      >
+      <button (click)="addOneMore()">+</button>
+    </div>
     <button class="pink-btn" (click)="removeProduct()">
       <mat-icon>delete</mat-icon>
       Quitar del carrito

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {ProductEntity} from '@entities/product.entity';
+import {ProductCartItem, ProductEntity} from '@entities/product.entity';
 import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
@@ -19,6 +19,28 @@ export class CartService {
     const currentCart = this.cartProducts.getValue();
     this.cartProducts.next([...currentCart, product]);
     this.saveCartToCookies()
+  }
+
+  removeOneProductFromCart(productId: string) {
+    const currentCart = this.cartProducts.getValue();
+    const index = currentCart.findIndex(product => product.id === productId);
+    if (index !== -1) {
+      currentCart.splice(index, 1);
+      this.cartProducts.next([...currentCart]);
+      this.saveCartToCookies();
+    }
+  }
+
+  generateProductCartItems(products: ProductEntity[]): ProductCartItem[] {
+    return Object.values(
+      products.reduce((acc, prod) => {
+        if (!acc[prod.id]) {
+          acc[prod.id] = { ...prod, quantity: 0 };
+        }
+        acc[prod.id].quantity! += 1;
+        return acc;
+      }, {} as { [key: string]: ProductCartItem })
+    )
   }
 
   removeProductFromCart(productId: string) {

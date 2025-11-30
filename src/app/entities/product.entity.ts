@@ -23,3 +23,5 @@ export class ProductEntity extends BaseEntity {
   flavors: string = '';
   design: string = '';
 }
+
+export type ProductCartItem = ProductEntity & { quantity: number }

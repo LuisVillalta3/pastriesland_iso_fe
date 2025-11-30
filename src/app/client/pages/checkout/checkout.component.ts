@@ -7,7 +7,7 @@ import {MatInput} from '@angular/material/input';
 import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
 import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
 import {CartItemComponent} from '@client/components/cart-item/cart-item.component';
-import {ProductEntity} from '@entities/product.entity';
+import {ProductCartItem, ProductEntity} from '@entities/product.entity';
 import {Subscription} from 'rxjs';
 import {CartService} from '@client/services/cart.service';
 import {NotificationService} from '@services/notification.service';
@@ -30,6 +30,8 @@ import { AddressListItemComponent } from '../../components/address-list-item/add
 export class CheckoutComponent implements OnInit, OnDestroy {
   pickUp = false;
   paymentMethod: 'card' | 'cash' = 'card';
+
+  productCartItems: ProductCartItem[] = [];
 
   addresses: AddressEntity[] = [];
 
@@ -66,6 +68,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.sub = this.cartService.cartProducts$.subscribe(
       async (products) => {
         this.currentCart = products
+
+        this.productCartItems = this.cartService.generateProductCartItems(products);
 
         if (!products.length) {
           this.notification.show("No hay productos en el carrito", 'info')
@@ -114,5 +118,13 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     })
 
     dialogRef.afterClosed().subscribe()
+  }
+
+  removeOneProduct(productId: string) {
+    this.cartService.removeOneProductFromCart(productId);
+  }
+
+  addOneMore(product: ProductEntity) {
+    this.cartService.addProductToCart(product);
   }
 }

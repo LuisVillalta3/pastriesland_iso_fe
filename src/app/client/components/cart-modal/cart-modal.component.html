@@ -5,9 +5,11 @@
 
   <section class="carrito-grid">
     <app-cart-item
-      *ngFor="let product of currentCart"
+      *ngFor="let product of productCartItems"
       [product]="product"
       (productRemoved)="removeProduct($event)"
+      (removeOneProduct)="removeOneProduct($event)"
+      (addOneMoreProduct)="addOneMore($event)"
     />
   </section>
 

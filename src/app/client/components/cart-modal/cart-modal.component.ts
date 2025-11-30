@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {CartService} from '@client/services/cart.service';
-import {ProductEntity} from '@entities/product.entity';
+import {ProductCartItem, ProductEntity} from '@entities/product.entity';
 import {Subscription} from 'rxjs';
 import {CurrencyPipe, NgForOf} from '@angular/common';
 import {CartItemComponent} from '@client/components/cart-item/cart-item.component';
 import {NotificationService} from '@services/notification.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-modal',
@@ -21,6 +21,7 @@ import {Router} from '@angular/router';
 export class CartModalComponent implements OnInit, OnDestroy {
 
   currentCart: ProductEntity[] = [];
+  productCartItems: ProductCartItem[] = [];
 
   sub!: Subscription
 
@@ -38,12 +39,15 @@ export class CartModalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub = this.cartService.cartProducts$.subscribe(
       products => {
-        this.currentCart = products
-
         if (!products.length) {
           this.close()
           this.notification.show("No hay productos en el carrito", 'info')
+          return;
         }
+
+        this.currentCart = products
+
+        this.productCartItems = this.cartService.generateProductCartItems(products);
       }
     )
   }
@@ -67,5 +71,13 @@ export class CartModalComponent implements OnInit, OnDestroy {
   async checkout() {
     await this.router.navigate(['checkout'])
     this.close()
+  }
+
+  removeOneProduct(productId: string) {
+    this.cartService.removeOneProductFromCart(productId);
+  }
+
+  addOneMore(product: ProductEntity) {
+    this.cartService.addProductToCart(product);
   }
 }

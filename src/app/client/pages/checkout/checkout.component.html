@@ -114,11 +114,13 @@
 <section class="content-container">
   <h3>Estos son los productos que haz agregado a tu carrito de compra.</h3>
 
-  <section class="carrito-grid no-max-height">
+  <section class="carrito-grid carrito-grid--checkout no-max-height">
     <app-cart-item
-      *ngFor="let product of currentCart"
+      *ngFor="let product of productCartItems"
       [product]="product"
       (productRemoved)="removeProduct($event)"
+      (removeOneProduct)="removeOneProduct($event)"
+      (addOneMoreProduct)="addOneMore($event)"
     />
   </section>
 </section>
