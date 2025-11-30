@@ -1,0 +1,31 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <h2 *ngIf="!loading">{{ id ? 'Editar' : 'Crear' }} categoría</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Introduce el nombre de la categoría"
+          formControlName="name"
+          required
+        />
+
+        <mat-error *ngIf="nameErrors">
+          {{nameErrors}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="isActive">
+        ¿Está activa?
+      </mat-checkbox>
+
+      <button type="submit" mat-flat-button color="primary" class="full-width">Guardar categoría</button>
+    </form>
+  </mat-card-content>
+</mat-card>

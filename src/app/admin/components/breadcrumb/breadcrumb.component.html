@@ -1,0 +1,19 @@
+<div class="bread-crumb-container">
+  <div class="title-container">
+    <h1>{{ title }}</h1>
+    <span class="spacer"></span>
+    <a
+      *ngIf="link"
+      mat-icon-button
+      [routerLink]="link">
+      <mat-icon>add_circle</mat-icon>
+    </a>
+  </div>
+  <div *ngIf="navItems.length" class="breadcrumbs-container">
+    <ng-container *ngFor="let item of navItems; let last = last">
+      <a *ngIf="item.route" [routerLink]="item.route" class="nav-link">{{ item.title }}</a>
+      <span *ngIf="!item.route">{{ item.title }}</span>
+      <span *ngIf="!last" class="separator">  /  </span>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      <h2 *ngIf="!loading">{{ id ? 'Editar' : 'Crear' }} producto</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Introduce el nombre de la categoría"
+          formControlName="name"
+          required
+        />
+
+        <mat-error *ngIf="nameErrors">
+          {{nameErrors}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Precio base</mat-label>
+        <input
+          matInput
+          placeholder="Introduce el precio base ($)"
+          formControlName="basePrice"
+          required
+        />
+
+        <mat-error *ngIf="priceErrors">
+          {{priceErrors}}
+        </mat-error>
+
+        <mat-hint>Este es el precio base que tendra un producto sin importar variantes.</mat-hint>
+      </mat-form-field>
+
+      <div style="margin: 1rem 0 .6rem;">
+        <mat-checkbox formControlName="active">
+          ¿Está activo?
+        </mat-checkbox>
+      </div>
+
+      <div style="margin: 1rem 0 1.5rem;">
+        <mat-checkbox formControlName="isOutstanding">
+          ¿Es un producto destacado?
+        </mat-checkbox>
+      </div>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Unidades</mat-label>
+        <input
+          matInput
+          placeholder="Unidades del producto"
+          formControlName="units"
+          type="number"
+          required
+          min="0"
+        />
+
+        <mat-error *ngIf="unitsErrors">
+          {{unitsErrors}}
+        </mat-error>
+
+        <mat-hint>Si el producto tiene unidades entonces las porciones no se tomaran en cuenta.</mat-hint>
+      </mat-form-field>
+
+      <div class="pieces">
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Porciones minimas</mat-label>
+          <input
+            matInput
+            placeholder="Porciones minimas"
+            formControlName="minPortions"
+            type="number"
+            required
+            min="0"
+          />
+
+          <mat-error *ngIf="minPortionsErrors">
+            {{minPortionsErrors}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Porciones máximas</mat-label>
+          <input
+            matInput
+            placeholder="Porciones máximas"
+            formControlName="maxPortions"
+            type="number"
+            required
+            min="0"
+          />
+
+          <mat-error *ngIf="maxPortionsErrors">
+            {{maxPortionsErrors}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <app-multi-autocomplete
+        label="Categorías"
+        [options]="categories"
+        [selectedOptions]="selectedCategories"
+        (selectedKeysChange)="onSelectionChanged($event)"
+      />
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Diseño</mat-label>
+        <input
+          matInput
+          placeholder="Escribe una descripción del diseño del producto"
+          formControlName="design"
+          required
+        />
+
+        <mat-hint>Introduce los sabores del producto separados por coma</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Sabores</mat-label>
+        <input
+          matInput
+          placeholder="Introduce los sabores del producto separados por coma"
+          formControlName="flavors"
+          required
+        />
+
+        <mat-hint>Introduce los sabores del producto separados por coma</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Complementos</mat-label>
+        <input
+          matInput
+          placeholder="Introduce los complementos del producto separados por coma"
+          formControlName="addons"
+          required
+        />
+
+        <mat-hint>Introduce los complementos del producto separados por coma</mat-hint>
+      </mat-form-field>
+
+      <hr>
+
+      <h3>Imágenes del producto</h3>
+
+      <div class="add-image-container">
+        <input type="file" [id]="imgInputId" (change)="onFileSelected($event)" />
+
+        <button type="button" mat-flat-button (click)="uploadFileToPreview()">Cargar</button>
+
+      </div>
+      <span class="img-hint">Recuerda que ninguna imagen se guardara hasta que presiones el botón <b>Guardar producto</b></span>
+
+      <div class="gallery">
+        <div class="gallery-item" *ngFor="let img of uploadedPreviews">
+          <img
+            alt="Product image"
+            [src]="img.url"
+            width="100"
+            height="100"
+            class="thumb"
+          />
+          <div>
+          <button *ngIf="img.id" mat-icon-button type="button" (click)="deleteImagePreview(img.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" mat-flat-button color="primary" class="full-width">Guardar producto</button>
+    </form>
+  </mat-card-content>
+</mat-card>

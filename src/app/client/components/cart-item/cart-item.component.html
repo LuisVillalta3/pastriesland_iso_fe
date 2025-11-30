@@ -1,8 +1,10 @@
 <article>
-  <div class="img-container"><img [src]="mainImage" [alt]="product.name"></div>
+  <div class="img-container">
+    <img [src]="mainImage" [alt]="product.name" />
+  </div>
   <section>
-    <h4>{{product.name}}</h4>
-    <p class="price">{{product.basePrice | currency}}</p>
+    <h4>{{ product.name }}</h4>
+    <p class="price">{{ product.basePrice | currency }}</p>
     <button class="pink-btn" (click)="removeProduct()">
       <mat-icon>delete</mat-icon>
       Quitar del carrito

@@ -1,0 +1,27 @@
+.sidenav {
+  width: 220px;
+  padding: 2rem 1rem;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  background: #f8f8f8;
+
+  ::ng-deep .mat-list-item {
+    font-weight: 500;
+    padding: 10px 16px;
+    gap: 12px;
+  }
+}
+
+
+.sidenav-container {
+  min-height: 100vh;
+}
+
+.content {
+  min-height: 75vh;
+}
+
+.module-content {
+  padding: 1rem 2rem;
+}
+

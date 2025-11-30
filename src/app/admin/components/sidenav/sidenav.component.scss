@@ -1,0 +1,31 @@
+.sidenav-header {
+  font-size: 1.5rem;
+
+  h3 {
+    margin: 0 0 1.4rem;
+  }
+}
+
+.sidenav-links {
+  a {
+    text-decoration: none;
+    color: #005cbb;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .mdc-list-item__content .mat-mdc-list-item-unscoped-content.mdc-list-item__primary-text span {
+    display: flex;
+    width: 100%;
+  }
+
+  ::ng-deep .mat-mdc-list-item-unscoped-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+  }
+}

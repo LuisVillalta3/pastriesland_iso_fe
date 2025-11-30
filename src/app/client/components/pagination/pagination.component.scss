@@ -10,9 +10,9 @@ ul {
 
 li {
   font-size: 1rem;
-  border: 3px solid #F75590;
+  border: 3px solid #f75590;
   background: white;
-  color: #F75590;
+  color: #f75590;
   font-weight: bold;
   justify-content: center;
   align-items: center;
@@ -20,13 +20,13 @@ li {
   border-radius: 10px;
   width: 32px;
   height: 32px;
-  transition: .2s ease all;
+  transition: 0.2s ease all;
   cursor: pointer;
   user-select: none;
 
   &:hover,
-  &.current-page{
-    background: #F75590;
+  &.current-page {
+    background: #f75590;
     color: white;
   }
 
@@ -34,7 +34,6 @@ li {
     cursor: default;
   }
 }
-
 
 .mat-icon {
   font-size: 34px;
@@ -49,7 +48,7 @@ li {
   background: transparent !important;
 
   &:hover {
-    color: #9747FF;
+    color: #9747ff;
     transform: scale(1.05);
   }
 

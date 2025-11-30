@@ -1,13 +1,13 @@
 <article>
   <div>
-    <img [src]="mainImage" [alt]="product.name">
+    <img [src]="mainImage" [alt]="product.name" />
   </div>
   <section>
-    <h2 [matTooltip]="product.name">{{product.name}}</h2>
-    <p class="price">{{product.basePrice | currency}}</p>
+    <h2 [matTooltip]="product.name">{{ product.name }}</h2>
+    <p class="price">{{ product.basePrice | currency }}</p>
   </section>
   <section class="btn-container">
-    <button class="pink-btn">
+    <button class="pink-btn" (click)="openModal()">
       <img src="assets/icons/canasta.svg" alt="carrito" />
       Añadir al carrito
     </button>

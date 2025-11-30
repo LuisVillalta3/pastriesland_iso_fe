@@ -1,0 +1,27 @@
+<mat-form-field appearance="outline" class="w-full" [floatLabel]="floatLabel">
+  <mat-label>{{label}}</mat-label>
+  <mat-chip-grid #chipGrid aria-label="Selección múltiple">
+    <mat-chip
+      *ngFor="let key of selectedKeys"
+      [removable]="true"
+      (removed)="remove(key)">
+      {{ getSelectedValue(key) }}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+
+    <input
+      [formControl]="inputControl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipGrid"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="false"
+      (matChipInputTokenEnd)="add($event)"
+      placeholder="Selecciona...">
+  </mat-chip-grid>
+
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.key">
+      {{ option.value }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

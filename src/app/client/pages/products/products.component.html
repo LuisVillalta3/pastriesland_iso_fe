@@ -5,7 +5,7 @@
       <span>Productos</span>
     </h2>
     <p>Pasteles y postres personalizados para toda ocasión.</p>
-    <img src="assets/img/cake2.jpg" alt="Cake">
+    <img src="assets/img/cake2.jpg" alt="Cake" />
   </div>
 </section>
 
@@ -15,7 +15,7 @@
 
   <button class="filter-btn pink-btn" (click)="toggleSeeFilters()">
     <mat-icon>filter_alt</mat-icon>
-    {{!seeFilters ? 'Mostrar' : 'Ocultar'}} Filtros
+    {{ !seeFilters ? "Mostrar" : "Ocultar" }} Filtros
   </button>
 
   <section class="products-container">
@@ -83,7 +83,9 @@
       </div>-->
 
       <button class="pink-btn" (click)="applyFilters()">Filtrar</button>
-      <button class="purple-btn" (click)="clearFilters()">Limpiar filtros</button>
+      <button class="purple-btn" (click)="clearFilters()">
+        Limpiar filtros
+      </button>
     </aside>
 
     <section class="product-list">
@@ -94,11 +96,16 @@
         />
       </section>
 
-      <app-pagination [paginationMeta]="paginationMeta" (pageChange)="changePage($event)" />
+      <app-pagination
+        [paginationMeta]="paginationMeta"
+        (pageChange)="changePage($event)"
+      />
     </section>
-
   </section>
-  <span>* El precio puede variar en función del sabor o el diseño seleccionado</span>
+  <span
+    >* El precio puede variar en función del sabor o el diseño
+    seleccionado</span
+  >
 </section>
 
 <app-contact-form />

@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="isSidenavOpen" class="sidenav">
+    <app-admin-sidenav />
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-admin-toolbar (toggleSidenav)="toggleSidenav()"></app-admin-toolbar>
+
+    <div class="content">
+      <app-admin-breadcrumb
+        [title]="title"
+        [navItems]="breadcrumbsList"
+        [link]="creationLink"
+      />
+
+      <div class="module-content">
+        <router-outlet />
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

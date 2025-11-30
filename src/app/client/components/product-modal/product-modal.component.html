@@ -1,13 +1,15 @@
 <article>
   <button (click)="close()" class="close-btn">X</button>
 
-  <div class="product-image"><img [src]="mainImage" [alt]="product.name"></div>
+  <div class="product-image">
+    <img [src]="mainImage" [alt]="product.name" />
+  </div>
   <section>
     <h2>{{ product.name }}</h2>
     <p class="price">{{ product.basePrice | currency }}</p>
-    <p><strong>Diseño:</strong> {{product.design}}</p>
-    <p *ngIf="hasPortions"><strong>Porciones:</strong> {{portionText}}</p>
-    <p *ngIf="hasUnits"><strong>Unidades:</strong> {{unitText}}</p>
+    <p><strong>Diseño:</strong> {{ product.design }}</p>
+    <p *ngIf="hasPortions"><strong>Porciones:</strong> {{ portionText }}</p>
+    <p *ngIf="hasUnits"><strong>Unidades:</strong> {{ unitText }}</p>
     <!--<div *ngIf="flavors">
       <p><strong>Sabores:</strong></p>
       <ul>
@@ -17,7 +19,7 @@
     <div *ngIf="addons">
       <p><strong>Incluye:</strong></p>
       <ul>
-        <li *ngFor="let opt of addons">{{opt}}</li>
+        <li *ngFor="let opt of addons">{{ opt }}</li>
       </ul>
     </div>
     <button class="pink-btn" (click)="addToCart()">
