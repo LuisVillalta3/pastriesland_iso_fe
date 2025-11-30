@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
-import {MatInputModule} from '@angular/material/input';
+import {Component, ViewChild} from '@angular/core';
+import {MatInput, MatInputModule, MatLabel} from '@angular/material/input';
 import {NgIf} from '@angular/common';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import {ContactsService} from '@client/services/contacts.service';
 import {NotificationService} from '@services/notification.service';
 import {NgxMaskDirective, provideNgxMask} from 'ngx-mask';
 
@@ -22,6 +24,7 @@ export class ContactFormComponent {
 
   constructor(
     private fb: FormBuilder,
+    private contactService: ContactsService,
     private notification: NotificationService,
   ) {
     this.contactForm = this.fb.group({
@@ -59,6 +62,20 @@ export class ContactFormComponent {
   submit() {
     if (this.contactForm.invalid) return
 
-    this.notification.show('Gracias por contactarnos, pronto te responderemos')
+    const { name, email, whatsapp, message } = this.contactForm.value;
+
+    this.contactService.create({
+      name, email, whatsapp, message
+    }).subscribe({
+      next: () => {
+        this.contactForm.reset()
+        this.contactForm.markAsPristine()
+        this.contactForm.markAsUntouched()
+        Object.values(this.contactForm.controls).forEach(control => {
+          control.setErrors(null);
+        });
+        this.notification.show('Gracias por contactarnos, pronto te responderemos')
+      }
+    })
   }
 }

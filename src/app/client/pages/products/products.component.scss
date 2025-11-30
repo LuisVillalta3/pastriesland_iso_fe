@@ -13,7 +13,7 @@ h1 {
   margin: 0;
 
   strong {
-    color: #F75590;
+    color: #f75590;
   }
 }
 
@@ -23,7 +23,7 @@ p {
 }
 
 button {
-  padding: 5px 1.2rem 5px .4rem;
+  padding: 5px 1.2rem 5px 0.4rem;
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -32,12 +32,12 @@ button {
 }
 
 h2,
-h3{
+h3 {
   font-family: "Playfair Display", serif;
   margin: 0;
 
   span {
-    color: #F75590;
+    color: #f75590;
     display: block;
     font-size: 1.2em;
     font-weight: bold;
@@ -45,11 +45,11 @@ h3{
 }
 
 h3 {
-  color: #F75590;
+  color: #f75590;
   font-size: 1.4rem;
 
   span {
-    color: #0D1821;
+    color: #0d1821;
     font-size: 1em;
     display: inline-block;
   }
@@ -59,7 +59,7 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: .5s all ease;
+  transition: 0.5s all ease;
   transform-origin: top;
   background: white;
   transform: scaleY(0);
@@ -86,7 +86,7 @@ li {
   display: flex;
   align-items: center;
 
-  .mat-internal-form-field>label {
+  .mat-internal-form-field > label {
     font-size: 1.1rem;
   }
 }
@@ -120,7 +120,6 @@ li {
     grid-template-columns: minmax(275px, 24%) 1fr 1fr;
   }
 }
-
 
 @media screen and (min-width: 1024px) {
   .filter-btn {

@@ -1,8 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .snack-error .mdc-snackbar__surface.mat-mdc-snackbar-surface,
 .snack-success .mdc-snackbar__surface.mat-mdc-snackbar-surface,
@@ -54,42 +60,42 @@ p {
 .pink-btn,
 .purple-btn,
 .white-btn {
-  background: #F75590;
+  background: #f75590;
   display: inline-block;
   font-weight: bold;
   padding: 10px 1.5rem;
-  color: #FFF5E1 !important;
+  color: #fff5e1 !important;
   border-radius: 20px;
   text-decoration: none;
-  border: 2px solid #F75590;
+  border: 2px solid #f75590;
   font-family: "Playfair Display", serif;
   cursor: pointer;
-  transition: .2s all ease;
+  transition: 0.2s all ease;
 
   &:hover {
-    background: #9747FF;
+    background: #9747ff;
     transform: scale(1.03);
-    border-color: #9747FF;
+    border-color: #9747ff;
   }
 }
 
 .purple-btn {
-  background: #9747FF;
-  border-color: #9747FF;
+  background: #9747ff;
+  border-color: #9747ff;
 
   &:hover {
-    background: #F75590;
-    border-color: #F75590;
+    background: #f75590;
+    border-color: #f75590;
   }
 }
 
 .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
-.mdc-notched-outline__leading,
+  .mdc-notched-outline__leading,
 .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
-.mdc-notched-outline__notch,
+  .mdc-notched-outline__notch,
 .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused
-.mdc-notched-outline__trailing {
-  border-color: #F75590 !important;
+  .mdc-notched-outline__trailing {
+  border-color: #f75590 !important;
 }
 
 .web-title {
@@ -99,11 +105,11 @@ p {
   text-decoration: none;
   font-style: normal;
   font-size: 1.5rem;
-  color: #0D1821;
+  color: #0d1821;
 }
 
 #banner {
-  background: #BFF1F0;
+  background: #bff1f0;
   position: relative;
   min-height: 100vh;
   padding: 70px 0;
@@ -143,13 +149,13 @@ p {
     font-weight: 500;
     font-style: normal;
     font-size: 2.5rem;
-    line-height: .8;
+    line-height: 0.8;
     position: relative;
     z-index: 2;
     margin: 0;
 
     span {
-      color: #F75590;
+      color: #f75590;
       font-size: 1.6em;
       display: block;
     }
@@ -205,11 +211,11 @@ p {
     font-size: 1.2rem;
     position: absolute;
     top: 1rem;
-    transition: .3s all ease;
+    transition: 0.3s all ease;
     right: 1rem;
 
     &:hover {
-      color: #9747FF;
+      color: #9747ff;
       transform: scale(1.1);
     }
 
@@ -225,7 +231,7 @@ p {
 
     i {
       font-style: normal;
-      color: #F75590;
+      color: #f75590;
     }
   }
 
@@ -243,8 +249,8 @@ p {
 
   .purple-btn:hover {
     background: white;
-    color: #9747FF !important;
-    border-color: #9747FF;
+    color: #9747ff !important;
+    border-color: #9747ff;
   }
 
   p {
@@ -255,21 +261,21 @@ p {
   .tag {
     display: block;
     text-align: center;
-    font-size: .95rem;
+    font-size: 0.95rem;
     font-family: "Montserrat", sans-serif;
     margin: 1rem 0;
   }
 
   .link {
     font-size: 1.3rem;
-    color: #F75590;
+    color: #f75590;
     border: 0;
     text-align: center;
     display: block;
     font-family: "Playfair Display", serif;
     font-weight: bold;
     text-decoration: underline;
-    transition: .3s all ease;
+    transition: 0.3s all ease;
     cursor: pointer;
     background: 0;
     width: 100%;
@@ -279,7 +285,7 @@ p {
     }
 
     &:hover {
-      color: #9747FF;
+      color: #9747ff;
       transform: scale(1.04);
     }
   }
@@ -300,18 +306,18 @@ p {
 }
 
 .pink-checkbox.mat-mdc-checkbox-checked .mdc-checkbox__background {
-  background-color: #F75590 !important;
-  border-color: #F75590 !important;
+  background-color: #f75590 !important;
+  border-color: #f75590 !important;
 }
 
 .white-btn {
   background: white;
-  color: #F75590 !important;
+  color: #f75590 !important;
 
   &:hover {
-    background: #9747FF;
+    background: #9747ff;
     color: white !important;
-    border-color: #9747FF;
+    border-color: #9747ff;
   }
 }
 

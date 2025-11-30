@@ -22,7 +22,7 @@ h1 {
   margin: 0;
 
   strong {
-    color: #F75590;
+    color: #f75590;
     display: block;
     font-size: 1.4em;
   }
@@ -30,7 +30,7 @@ h1 {
 
 h4 {
   margin: 0;
-  color: #F75590;
+  color: #f75590;
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -88,9 +88,9 @@ h4 {
   width: 180px;
 
   &.selected {
-    background: #9747FF;
+    background: #9747ff;
     color: white;
-    border-color: #9747FF;
+    border-color: #9747ff;
   }
 }
 
@@ -108,7 +108,7 @@ h4 {
 
 .total {
   font-weight: bold;
-  color: #F75590;
+  color: #f75590;
   font-size: 2rem;
   margin: 0 0 1rem;
 }
@@ -133,8 +133,8 @@ h4 {
   cursor: pointer;
 
   &:hover {
-    background: #F75590;
+    background: #f75590;
     color: white;
-    border-color: #F75590;
+    border-color: #f75590;
   }
 }

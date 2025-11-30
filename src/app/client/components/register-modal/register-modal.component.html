@@ -1,6 +1,6 @@
 <section class="modal-container">
   <button class="close-modal" (click)="close()">X</button>
-  <article><img src="assets/img/register-image.jpg" alt="Register"></article>
+  <article><img src="assets/img/register-image.jpg" alt="Register" /></article>
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <h1>Crear <i>Cuenta</i></h1>
     <mat-form-field appearance="outline" class="w-full">
@@ -14,7 +14,7 @@
       />
 
       <mat-error *ngIf="nameErrors">
-        {{nameErrors}}
+        {{ nameErrors }}
       </mat-error>
     </mat-form-field>
 
@@ -29,7 +29,7 @@
       />
 
       <mat-error *ngIf="lastNameErrors">
-        {{lastNameErrors}}
+        {{ lastNameErrors }}
       </mat-error>
     </mat-form-field>
 
@@ -44,7 +44,7 @@
       />
 
       <mat-error *ngIf="emailErrors">
-        {{emailErrors}}
+        {{ emailErrors }}
       </mat-error>
     </mat-form-field>
 
@@ -58,7 +58,7 @@
       />
 
       <mat-error *ngIf="passwordErrors">
-        {{passwordErrors}}
+        {{ passwordErrors }}
       </mat-error>
 
       <button
@@ -69,7 +69,9 @@
         [attr.aria-label]="'Mostrar/Ocultar contraseña'"
         [attr.aria-pressed]="!hidePassword"
       >
-        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <mat-icon>{{
+          hidePassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
       </button>
     </mat-form-field>
 
@@ -83,7 +85,7 @@
       />
 
       <mat-error *ngIf="confirmPasswordErrors">
-        {{confirmPasswordErrors}}
+        {{ confirmPasswordErrors }}
       </mat-error>
 
       <button
@@ -94,13 +96,17 @@
         [attr.aria-label]="'Mostrar/Ocultar contraseña'"
         [attr.aria-pressed]="!hidePassword"
       >
-        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <mat-icon>{{
+          hidePassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
       </button>
     </mat-form-field>
 
     <button type="submit" class="pink-btn">Crear cuenta</button>
 
     <span class="tag">¿Ya tienes cuenta?</span>
-    <button type="button" (click)="openRegisterModal()" class="link">Iniciar sesión</button>
+    <button type="button" (click)="openRegisterModal()" class="link">
+      Iniciar sesión
+    </button>
   </form>
 </section>

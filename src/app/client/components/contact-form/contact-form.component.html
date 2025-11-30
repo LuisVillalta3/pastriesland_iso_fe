@@ -1,10 +1,17 @@
 <section id="contactanos">
   <div class="img-container">
-    <img src="assets/img/cake-contacts.jpg" alt="Cake image">
+    <img src="assets/img/cake-contacts.jpg" alt="Cake image" />
   </div>
-  <form class="content-container" [formGroup]="contactForm" (ngSubmit)="submit()">
+  <form
+    class="content-container"
+    [formGroup]="contactForm"
+    (ngSubmit)="submit()"
+  >
     <h2>¿Necesitas <strong>Ayuda?</strong></h2>
-    <p><strong>Contáctanos</strong> y te ayudamos a crear el <span>Dulce Perfecto</span></p>
+    <p>
+      <strong>Contáctanos</strong> y te ayudamos a crear el
+      <span>Dulce Perfecto</span>
+    </p>
 
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Tu nombre</mat-label>
@@ -16,7 +23,7 @@
         formControlName="name"
       />
 
-      <mat-error *ngIf="nameErrors">{{nameErrors}}</mat-error>
+      <mat-error *ngIf="nameErrors">{{ nameErrors }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="w-full">
@@ -29,7 +36,7 @@
         formControlName="email"
       />
 
-      <mat-error *ngIf="emailErrors">{{emailErrors}}</mat-error>
+      <mat-error *ngIf="emailErrors">{{ emailErrors }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="w-full">
@@ -43,21 +50,19 @@
         formControlName="whatsapp"
       />
 
-      <mat-error *ngIf="whatsappErrors">{{whatsappErrors}}</mat-error>
+      <mat-error *ngIf="whatsappErrors">{{ whatsappErrors }}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Tu Mensaje</mat-label>
-      <textarea
-        matInput
-        formControlName="message"
-      ></textarea>
+      <textarea matInput formControlName="message"></textarea>
     </mat-form-field>
-
 
     <button class="pink-btn" type="submit">Enviar mensaje</button>
 
     <p>Contactanos por <i>WhatsApp</i></p>
-    <a rel="nofollow" class="pink-btn whatsapp-btn" target="_blank">Abrir WhatsApp</a>
+    <a rel="nofollow" class="pink-btn whatsapp-btn" target="_blank"
+      >Abrir WhatsApp</a
+    >
   </form>
 </section>

@@ -1,0 +1,48 @@
+.bread-crumb-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  h1 {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+}
+
+.title-container {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+
+  .spacer {
+    flex: 1;
+  }
+
+  a {
+    color: #005cbb;
+  }
+}
+
+.breadcrumbs-container {
+  padding: .5rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  background: #f1f3f8;
+
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .separator {
+    color: #999;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+}

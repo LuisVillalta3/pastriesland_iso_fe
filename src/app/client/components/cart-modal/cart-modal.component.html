@@ -4,17 +4,22 @@
   <p>Estos son los productos que haz agregado a tu carrito de compra.</p>
 
   <section class="carrito-grid">
-    <app-cart-item *ngFor="let product of currentCart" [product]="product" (productRemoved)="removeProduct($event)" />
+    <app-cart-item
+      *ngFor="let product of currentCart"
+      [product]="product"
+      (productRemoved)="removeProduct($event)"
+    />
   </section>
 
   <section>
     <p class="subtotal">
-      Subtotal ({{countProducts}} productos): <strong>{{totalPrice | currency}}</strong>
+      Subtotal ({{ countProducts }} productos):
+      <strong>{{ totalPrice | currency }}</strong>
     </p>
     <div class="buttons">
       <button class="white-btn" (click)="close()">Seguir comprando</button>
       <button class="pink-btn" (click)="checkout()">
-        <img src="assets/icons/canasta.svg" alt="Canasta">
+        <img src="assets/icons/canasta.svg" alt="Canasta" />
         Completar compra
       </button>
     </div>

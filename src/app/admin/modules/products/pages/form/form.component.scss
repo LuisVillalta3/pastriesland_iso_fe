@@ -1,0 +1,47 @@
+.w-full {
+  width: 100%;
+  margin-bottom: .6rem;
+}
+mat-card {
+  max-width: 750px;
+  margin: 20px auto;
+  padding: 2rem;
+}
+
+h2 {
+  margin: 10px 0 2rem;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.pieces {
+  display: flex;
+  gap: 1rem;
+  margin: 1.4rem 0 .6rem;
+}
+
+.add-image-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.img-hint {
+  display: block;
+  font-size: 14px;
+  margin: 1rem 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  button {
+    color: red;
+  }
+}
