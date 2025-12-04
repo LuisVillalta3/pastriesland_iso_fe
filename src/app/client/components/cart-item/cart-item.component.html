@@ -7,13 +7,13 @@
     <p class="price">{{ product.basePrice | currency }}</p>
     <p class="price-total"><b>Total:</b> {{ totalPrice | currency }}</p>
     <div class="button-actions">
-      <button *ngIf="hideActions" (click)="removeOne()">-</button>
+      <button *ngIf="!hideActions" (click)="removeOne()">-</button>
       <span
         >Cantidad: <b>{{ product.quantity }}</b></span
       >
-      <button *ngIf="hideActions" (click)="addOneMore()">+</button>
+      <button *ngIf="!hideActions" (click)="addOneMore()">+</button>
     </div>
-    <button *ngIf="hideActions" class="pink-btn" (click)="removeProduct()">
+    <button *ngIf="!hideActions" class="pink-btn" (click)="removeProduct()">
       <mat-icon>delete</mat-icon>
       Quitar del carrito
     </button>
