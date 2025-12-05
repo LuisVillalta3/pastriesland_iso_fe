@@ -16,7 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class CartItemComponent {
   @Input({ required: true }) product!: ProductCartItem;
-  @Input() hideActions: boolean = false;
+  @Input() hideactions: boolean = false;
 
   @Output() productRemoved = new EventEmitter<string>();
   @Output() addOneMoreProduct = new EventEmitter<ProductEntity>();
